@@ -1,0 +1,42 @@
+import cv2
+import numpy as np
+import cozmo
+import asyncio
+from Detect_Tags import DetectTags
+
+def readcard():
+    dtHolder = DetectTags()
+    if dtHolder.check_image() > -1:
+        print("match has been found")
+        return
+    else:
+        print("No match found")
+        return
+
+
+if __name__ == '__main__':
+    readcard()
+
+
+
+#def cozmo_program(robot: cozmo.robot.Robot):
+    #look_around = robot.start_behavior(cozmo.behavior.BehaviorTypes.LookAroundInPlace)
+    #cube = None
+    #try:
+        #cube = robot.world.wait_for_observed_light_cube(timeout=30)
+        #print("Found cube", cube)
+
+    #except asyncio.TimeoutError:
+        #print("Didn't find a cube")
+
+    #finally:
+        #look_around.stop()
+
+    #if cube is None:
+        #robot.say_text("Oh no I don't see a cube").wait_for_completed()
+        #return
+
+
+#cozmo.run_program(cozmo_program)
+
+
